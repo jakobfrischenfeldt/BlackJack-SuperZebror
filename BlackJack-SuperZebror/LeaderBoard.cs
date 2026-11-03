@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -82,9 +82,11 @@ public class Leaderboard
             position++;
         }
     }
-
+    public void ShowLeaderBoard()
+    {
+      LoadResults();
+      ShowTopFive();
+      Console.WriteLine("\nPress any key to return to menu.");
+      Console.ReadKey();
+    }
 }
-
-
-
-
