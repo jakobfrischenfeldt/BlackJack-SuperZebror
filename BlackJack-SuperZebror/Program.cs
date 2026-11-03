@@ -1,49 +1,54 @@
-﻿class Program
+﻿using System;
+
+namespace BlackJack_SuperZebror
 {
-    static void Main(string[] args)
+    class Program
     {
-        bool showMenu = true;
-
-        while (showMenu)
+        static void Main(string[] args)
         {
-            Console.Clear();
+            bool showMenu = true;
 
-            Console.WriteLine("-------Black Jack-------");
-            Console.WriteLine("1. Play Game");
-            Console.WriteLine("2. Leader board");
-            Console.WriteLine("3. Rules");
-            Console.WriteLine("4. Quit");
-            Console.Write("Choice:");
-
-            string choice = Console.ReadLine();
-
-            switch (choice)
+            while (showMenu)
             {
-                case "1":
-                    //Skapar ett spelobjekt och startar spelet
-                    Game game = new Game();
-                    game.Play();
-                    break;
-                case "2":
-                    //Skpar ett LeaderBoard-objekt och visar leader board
-                    LeaderBoard leaderBoard = new LeaderBoard();
-                    leaderBoard.ShowLeaderBoard();
-                    break;
-                case "3":
-                    //Skapar ett Rules-objekt och visar reglerna
-                    Rules rules = new Rules();
-                    rules.ShowRules();
-                    break;
-                case "4":
-                    //Avslutar programmet
-                    showMenu = false;
-                    Console.WriteLine("Thank you for playing!");
-                    Console.ReadKey();
-                    break;
-                default:
-                    Console.WriteLine("Invalid choice. Press any key to try again.");
-                    Console.ReadKey();
-                    break;
+                Console.Clear();
+
+                Console.WriteLine("-------Black Jack-------");
+                Console.WriteLine("1. Play Game");
+                Console.WriteLine("2. Leader board");
+                Console.WriteLine("3. Rules");
+                Console.WriteLine("4. Quit");
+                Console.Write("Choice:");
+
+                string choice = Console.ReadLine() ?? "";
+
+                switch (choice)
+                {
+                    case "1":
+                        //Skapar ett spelobjekt och startar spelet
+                        Game game = new Game();
+                        game.Play();
+                        break;
+                    case "2":
+                        //Skpar ett LeaderBoard-objekt och visar leader board
+                        LeaderBoard leaderBoard = new LeaderBoard();
+                        leaderBoard.ShowLeaderBoard();
+                        break;
+                    case "3":
+                        //Skapar ett GameRules-objekt och visar reglerna
+                        RulesOfGame rules = new RulesOfGame();
+                        rules.ShowRules();
+                        break;
+                    case "4":
+                        //Avslutar programmet
+                        showMenu = false;
+                        Console.WriteLine("Thank you for playing!");
+                        Console.ReadKey();
+                        break;
+                    default:
+                        Console.WriteLine("Invalid choice. Press any key to try again.");
+                        Console.ReadKey();
+                        break;
+                }
             }
         }
     }

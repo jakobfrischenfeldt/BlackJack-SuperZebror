@@ -4,8 +4,11 @@ using System.Text;
 
 namespace BlackJack_SuperZebror
 {
-    internal class Rules
+    public class GameRules
     {
         public void ShowRules()
+        {
+
+        }
     }
 }
