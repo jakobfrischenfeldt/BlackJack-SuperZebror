@@ -6,10 +6,21 @@ namespace BlackJack_SuperZebror
 {
     public class Deck
     {
+        private readonly List<Card> cards = new List<Card>();
+
+        public int CardsLeft => cards.Count;
+
+        public Deck()
+        {
+            CreateDeck();
+            Shuffle();
+        }
         public class Card
         {
             public string Suit;
             public string Value;
+
+            
 
             public Card(string suit, string value)
             {
@@ -35,17 +46,7 @@ namespace BlackJack_SuperZebror
         }
 
 
-
-
-
-
-
-
-        public class Deck
-        {
-            private List<Card> cards = new List<Card>();
-
-            public void CreateDeck()
+        public void CreateDeck()
             {
                 string[] suits = { "Hearts", "Diamonds", "Clubs", "Spades" };
 
@@ -65,23 +66,26 @@ namespace BlackJack_SuperZebror
                 }
             }
 
-            public void ShuffleDeck()
+        public void Shuffle()
+        {
+            Random random = new Random();
+
+            for (int i = cards.Count - 1; i > 0; i--)
             {
-                Random random = new Random();
+                int randomIndex = random.Next(i + 1);
 
-                for (int i = cards.Count - 1; i > 0; i--)
-                {
-                    int randomIndex = random.Next(i + 1);
-
-                    Card temp = cards[i];
-                    cards[i] = cards[randomIndex];
-                    cards[randomIndex] = temp;
-                }
+                Card temp = cards[i];
+                cards[i] = cards[randomIndex];
+                cards[randomIndex] = temp;
             }
-
-
-
         }
+
+        public Card DrawCard()
+        {
+            Card card = cards[^1];
+            cards.RemoveAt(cards.Count - 1);
+            return card;
+        }  
     }
 }
 

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Data;
+using System.Security.Cryptography.X509Certificates;
+using static BlackJack_SuperZebror.Deck;
 
 namespace BlackJack_SuperZebror
 {
@@ -67,10 +69,12 @@ namespace BlackJack_SuperZebror
             Console.WriteLine("Press any key to exit...");
             Console.ReadKey();
         }
+        
 
         //Logic for running a single round of BJ
         private void PlayRound()
         {
+            int CardsLeft = _deck.CardsLeft;
             //Register that a round has been played
             _player.RecordRound();
 
@@ -101,8 +105,8 @@ namespace BlackJack_SuperZebror
             // Show current hands
             PrintTable(playerHand, dealerHand, hideDealerCard: true);
 
-            bool playerhasBJ = playerHand.HasBlackjack();
-            bool dealerhasBJ = dealerHand.HasBlackjack();
+            bool playerhasBJ = playerHand.IsBlackjack();
+            bool dealerhasBJ = dealerHand.IsBlackjack();
 
             if(playerhasBJ || dealerhasBJ)
             {
