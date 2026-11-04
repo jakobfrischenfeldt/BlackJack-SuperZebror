@@ -12,7 +12,7 @@ namespace BlackJack_SuperZebror
         //Metod för att lägga till ett kort i handen
         public void AddCard(Deck.Card card)
         {
-            Cards.Add(card);
+           Cards.Add(card);
         }
 
         //Metod för att beräkna värdet av handen

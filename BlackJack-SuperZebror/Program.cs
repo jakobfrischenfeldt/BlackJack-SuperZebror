@@ -31,7 +31,7 @@ namespace BlackJack_SuperZebror
                     case "2":
                         //Skpar ett Leaderboard-objekt och visar leader board
                         Leaderboard leaderboard = new Leaderboard();
-                        leaderboard.ShowLeaderboard();
+                        leaderboard.ShowLeaderBoard();
                         break;
                     case "3":
                         //Skapar ett GameRules-objekt och visar reglerna
