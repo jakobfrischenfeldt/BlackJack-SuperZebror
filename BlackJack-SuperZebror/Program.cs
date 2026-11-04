@@ -29,9 +29,9 @@ namespace BlackJack_SuperZebror
                         game.Play();
                         break;
                     case "2":
-                        //Skpar ett LeaderBoard-objekt och visar leader board
-                        LeaderBoard leaderBoard = new LeaderBoard();
-                        leaderBoard.ShowLeaderBoard();
+                        //Skpar ett Leaderboard-objekt och visar leader board
+                        Leaderboard leaderboard = new Leaderboard();
+                        leaderboard.ShowLeaderboard();
                         break;
                     case "3":
                         //Skapar ett GameRules-objekt och visar reglerna
