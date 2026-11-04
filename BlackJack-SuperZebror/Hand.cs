@@ -7,10 +7,10 @@ namespace BlackJack_SuperZebror
     public class Hand
     {
         //En lista som håller korten på just den här handen
-        public List<Card> Cards { get; set; } = new List<Card>();
+        public List<Deck.Card> Cards { get; set; } = new List<Deck.Card>();
 
         //Metod för att lägga till ett kort i handen
-        public void AddCard(Card card)
+        public void AddCard(Deck.Card card)
         {
             Cards.Add(card);
         }
@@ -24,8 +24,8 @@ namespace BlackJack_SuperZebror
             // Beräknar först värdet av handen och sedan antalet ess
             foreach (var card in Cards)
             {
-                value += card.Value;
-                if (card.Rank == "Ace")
+                value += card.GetValue();
+                if (card.Value == "Ace")
                 {
                     aceCount++;
                 }
