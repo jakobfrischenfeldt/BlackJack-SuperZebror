@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BlackJack_SuperZebror
 {
-    public class GameRules
+    public class RulesOfGame
     {
         public void ShowRules()
         {
