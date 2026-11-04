@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BlackJack_SuperZebror
 {
-    internal class Deck
+    public class Deck
     {
         public class Card
         {
@@ -41,7 +41,7 @@ namespace BlackJack_SuperZebror
 
 
 
-        public class deck
+        public class Deck
         {
             private List<Card> cards = new List<Card>();
 
