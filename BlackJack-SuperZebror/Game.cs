@@ -110,7 +110,13 @@ namespace BlackJack_SuperZebror
 
             if(playerhasBJ || dealerhasBJ)
             {
-                PrintTable(playerHand, dealerHand, hideDealerCard: false);
+
+                if (dealerhasBJ)
+                {
+                    PrintTable(playerHand, dealerHand, hideDealerCard: false);
+                }
+
+                
                 ResolveBlackjackPayout(playerhasBJ, dealerhasBJ, bet);
                 //ends the round if somebody got blackjack
                 return;
