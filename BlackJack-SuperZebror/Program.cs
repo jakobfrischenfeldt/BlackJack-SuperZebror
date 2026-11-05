@@ -44,6 +44,7 @@ namespace BlackJack_SuperZebror
                         Console.WriteLine("Thank you for playing!");
                         Console.ReadKey();
                         break;
+                        
                     default:
                         Console.WriteLine("Invalid choice. Press any key to try again.");
                         Console.ReadKey();

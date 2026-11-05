@@ -105,17 +105,21 @@ namespace BlackJack_SuperZebror
             // Show current hands
             PrintTable(playerHand, dealerHand, hideDealerCard: true);
 
-            bool playerhasBJ = playerHand.IsBlackjack();
-            bool dealerhasBJ = dealerHand.IsBlackjack();
+            //bool playerhasBJ = playerHand.IsBlackjack();
+            //bool dealerhasBJ = dealerHand.IsBlackjack();
 
-            if(playerhasBJ || dealerhasBJ)
+            bool playerhasBJ = playerHand.IsBlackjack();
+
+            if (playerhasBJ)
             {
                 PrintTable(playerHand, dealerHand, hideDealerCard: false);
-                ResolveBlackjackPayout(playerhasBJ, dealerhasBJ, bet);
-                //ends the round if somebody got blackjack
+                ResolveBlackjackPayout(true, false, bet);
                 return;
             }
+            
+            
 
+            //Jag har rört om lite här nedanför så att koden inte avslöjar dealerns blackJack innan rundan är över
             bool playerBusted = PlayerTurn(playerHand, dealerHand);
             if (playerBusted)
             {
@@ -125,10 +129,22 @@ namespace BlackJack_SuperZebror
                 return;
             }
 
-            
+
+            PrintTable(playerHand, dealerHand, hideDealerCard: false);
+            bool dealerhasBJ = dealerHand.IsBlackjack();
+
+            if (dealerhasBJ)
+            {
+                Thread.Sleep(1000);
+                Console.WriteLine("Dealer has BlackJack!");
+                _player.Balance -= bet;
+                return;
+            }
             DealerTurn(dealerHand, playerHand);
 
             EvaluateWinner(playerHand, dealerHand, bet);
+
+            
         }
 
         //Validate the input
