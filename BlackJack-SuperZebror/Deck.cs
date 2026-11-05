@@ -43,6 +43,12 @@ namespace BlackJack_SuperZebror
                     return int.Parse(Value);
                 }
             }
+
+            //Gör så att man kan se vilka kort som dras efter att man trycker på spela
+            public override string ToString()
+            {
+                return $"{Value} of {Suit}";
+            }
         }
 
 
